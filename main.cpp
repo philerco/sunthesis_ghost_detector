@@ -16,22 +16,30 @@ int main()
 
     vector<PhidgetDigitalOutput> leds(8);
 
+    //////////////////////////////////////////////////////////////////
+    //Simulate system init (light all leds and deactivate them like k2000)
     for(int i=0; i < 8; i++){
         leds[i].init(i);
         leds[i].activate();
         usleep(20000);
     }
-
-    cout << "lights out !" << endl;
     for(auto& led:leds){
         led.deactivate();
         usleep(20000);
     }
+    //End Init
+    //////////////////////////////////////////////////////////////////
 
-    cout << "End of the World..." << endl;
-
+    //Init voltage sensors
     PhidgetVoltageInput rotationSensor;
     rotationSensor.init(0);
+
+    PhidgetVoltageInput voltageSensor;
+    voltageSensor.init(1);
+
+    //Init RPi GPIO
+
+
     double voltage = 1;
     //voltage = rotationSensor.currentVoltage();
     sleep(1);
