@@ -31,7 +31,7 @@ PhidgetVoltageInput::~PhidgetVoltageInput()
 }
 
 void PhidgetVoltageInput::internalCallbackFunction(double pNewVoltage) {
-    printf("Voltage Changed: %.4f\n", pNewVoltage);
+    //printf("Voltage Changed: %.4f\n", pNewVoltage);
     this->mLastVoltage = pNewVoltage;
 }
 

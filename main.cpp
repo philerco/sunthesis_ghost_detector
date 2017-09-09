@@ -8,6 +8,7 @@
 #include "src/phidget/PhidgetDigitalOutput.h"
 #include "src/phidget/PhidgetVoltageInput.h"
 #include "src/RPi/GPIOClass.h"
+#include "src/GhostDetector.h"
 
 using namespace std;
 
@@ -16,8 +17,8 @@ int main()
     cout << "Hello World!" << endl;
 
     //Init sound GPIO pin
-    GPIOClass* mSound;
-    mSound = new GPIOClass();
+    /*GPIOClass* mSound;
+    mSound = new GPIOClass("26");
     mSound->export_gpio();
     mSound->setdir_gpio("out");
 
@@ -31,6 +32,13 @@ int main()
         }
         usleep(sleep);
         sleep /=2;
+    }*/
+
+    GhostDetector ldetector(8, 0, 1, "26");
+
+    while(1){
+        usleep(10000000);
+        cout << "main thread sleep" << endl;
     }
 
     return 0;
