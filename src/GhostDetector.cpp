@@ -49,7 +49,7 @@ void GhostDetector::soundThread(){
 
 
     while(1){
-        cout << this->mIntensity << endl;
+        //cout << this->mIntensity << endl;
         if(this->mSoundCptr > 3000000000) this->mSoundCptr=0;
         if(this->mIntensity == 0){
             usleep(500000);
@@ -58,11 +58,11 @@ void GhostDetector::soundThread(){
 
             if(lThreshold <=0 || (this->mSoundCptr++)%lThreshold == 0){
                 this->mSound->setval_gpio("1");
-                cout << "bip" << endl;
+                //cout << "bip" << endl;
             }else{
                 this->mSound->setval_gpio("0");
             }
-            usleep(20000);
+            usleep(10000);
         }
 
     }
@@ -114,7 +114,7 @@ void GhostDetector::mainThread(){
             }
         }
 
-        usleep(50000);
+        usleep(100000);
 
     }
 
